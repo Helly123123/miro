@@ -2,7 +2,7 @@
   <div class="tg-app-container">
     <div class="tg-app">
       <Header :openSettings="changeSettings" />
-      <Main />
+      <router-view></router-view>
       <Settings :close="changeSettings" v-if="settings" />
       <slot></slot>
     </div>
