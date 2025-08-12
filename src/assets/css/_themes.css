@@ -9,6 +9,7 @@
   --voice-button-border: rgba(255, 255, 255, 0.3);
   --voice-button-bot: white;
   --feedback: #f8f9fa;
+  --voice-text: black;
   --block: white;
   --card: #f5f5f5;
 }
@@ -18,11 +19,12 @@
   --primary-color: #42b983;
   --background-color: #121212;
   --text-color: #ffffff;
-  --voice-button-bg: #ffffff;
+  --voice-button-bg: #373737;
   --voice-button-text: #000000;
   --voice-button-border: rgba(0, 0, 0, 0.3);
   --voice-button-bot: rgb(48, 48, 48);
-  --feedback: #ffffff;
+  --feedback: #373737;
   --block: #1e1e1e;
+  --voice-text: white;
   --card: #373737;
 }

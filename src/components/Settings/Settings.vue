@@ -38,6 +38,10 @@
         <span class="section-title">Тема</span>
         <Theme />
       </div>
+      <div class="section-block">
+        <span class="section-title">Озвучка</span>
+        <Voice />
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +49,7 @@
 <script setup>
 import Promt from "./Components/Promt.vue";
 import Theme from "./Components/Theme.vue";
+import Voice from "./Components/Voice.vue";
 const props = defineProps({
   close: {
     type: Function,

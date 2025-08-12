@@ -24,7 +24,7 @@
   justify-content: center;
   background: var(--voice-button-bg);
   align-items: center;
-  color: var(--voice-button-text);
+  color: white;
   font-weight: bold;
   user-select: none;
   font-size: 20px;
@@ -55,7 +55,7 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: var(--voice-button-border);
+  background-color: white;
 }
 
 .loading-circle {

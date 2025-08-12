@@ -37,7 +37,7 @@
   justify-content: center;
   background-color: var(--voice-button-bg);
   align-items: center;
-  color: var(--voice-button-text);
+  color: white;
   font-weight: bold;
   user-select: none;
   font-size: 20px;

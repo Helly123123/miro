@@ -5,6 +5,7 @@ import "./assets/css/_main.css";
 
 import Main from "./pages/Main.vue";
 
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
@@ -13,6 +14,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 const pinia = createPinia();
 const app = createApp(App);
+pinia.use(piniaPluginPersistedstate);
 
 const routes = [
   {
@@ -28,7 +30,6 @@ const router = createRouter({
   routes,
 });
 
-// Сначала подключаем плагины
 app.use(pinia);
 app.use(router);
 

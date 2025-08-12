@@ -3,8 +3,8 @@
     <div class="card-list">
       <div
         class="card"
-        :class="{ selected: selectedCard === 2 }"
-        @click="selectCard(2)"
+        :class="{ selected: getPromtStyle === 'normal' }"
+        @click="setPromtStyle('normal')"
       >
         <svg
           width="40"
@@ -23,8 +23,8 @@
       </div>
       <div
         class="card"
-        :class="{ selected: selectedCard === 1 }"
-        @click="selectCard(1)"
+        :class="{ selected: getPromtStyle === 'friend' }"
+        @click="setPromtStyle('friend')"
       >
         <svg
           width="40"
@@ -45,8 +45,8 @@
 
       <div
         class="card"
-        :class="{ selected: selectedCard === 3 }"
-        @click="selectCard(3)"
+        :class="{ selected: getPromtStyle === 'mentor' }"
+        @click="setPromtStyle('mentor')"
       >
         <svg
           width="40"
@@ -56,7 +56,6 @@
           xmlns="http://www.w3.org/2000/svg"
           class="icon"
         >
-          <!-- Ваш SVG для Серьёзного -->
           <path
             d="M36.25 20C36.25 15.6902 34.538 11.557 31.4905 8.50951C28.443 5.46205 24.3098 3.75 20 3.75C15.6902 3.75 11.557 5.46205 8.50951 8.50951C5.46205 11.557 3.75 15.6902 3.75 20C3.75 24.3098 5.46205 28.443 8.50951 31.4905C11.557 34.538 15.6902 36.25 20 36.25C24.3098 36.25 28.443 34.538 31.4905 31.4905C34.538 28.443 36.25 24.3098 36.25 20ZM0 20C0 14.6957 2.10714 9.60859 5.85786 5.85786C9.60859 2.10714 14.6957 0 20 0C25.3043 0 30.3914 2.10714 34.1421 5.85786C37.8929 9.60859 40 14.6957 40 20C40 25.3043 37.8929 30.3914 34.1421 34.1421C30.3914 37.8929 25.3043 40 20 40C14.6957 40 9.60859 37.8929 5.85786 34.1421C2.10714 30.3914 0 25.3043 0 20ZM11.25 16.25C11.25 15.587 11.5134 14.9511 11.9822 14.4822C12.4511 14.0134 13.087 13.75 13.75 13.75C14.413 13.75 15.0489 14.0134 15.5178 14.4822C15.9866 14.9511 16.25 15.587 16.25 16.25C16.25 16.913 15.9866 17.5489 15.5178 18.0178C15.0489 18.4866 14.413 18.75 13.75 18.75C13.087 18.75 12.4511 18.4866 11.9822 18.0178C11.5134 17.5489 11.25 16.913 11.25 16.25ZM26.25 13.75C26.913 13.75 27.5489 14.0134 28.0178 14.4822C28.4866 14.9511 28.75 15.587 28.75 16.25C28.75 16.913 28.4866 17.5489 28.0178 18.0178C27.5489 18.4866 26.913 18.75 26.25 18.75C25.587 18.75 24.9511 18.4866 24.4822 18.0178C24.0134 17.5489 23.75 16.913 23.75 16.25C23.75 15.587 24.0134 14.9511 24.4822 14.4822C24.9511 14.0134 25.587 13.75 26.25 13.75Z"
             fill="currentColor"
@@ -73,15 +72,27 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useAccountStore } from "@/stores/userStore";
+const accountStore = useAccountStore();
+
+const getPromtStyle = computed(() => accountStore.getPromtStyle);
+
+const setPromtStyle = (promt) => {
+  accountStore.setPromtStyle(promt);
+};
+
+const test = accountStore.currentPromt;
+
+console.log(test);
 
 const selectedCard = ref(null);
 
 const selectCard = (index) => {
   selectedCard.value = index;
-  // Можно добавить emit для передачи выбранного стиля родителю
-  // emit('select-style', index);
 };
+
+// onMounted(getPromtStyle);
 </script>
 
 <style scoped>
@@ -166,6 +177,6 @@ h3 {
   color: #34c759;
 }
 .card:nth-child(3).selected .icon {
-  color: #007aff;
+  color: #b1111b;
 }
 </style>
